@@ -88,8 +88,11 @@ export function router(app){
 
 
     const galleryController = new GalleryController();
+
     // Because express rebinds `this`
     app.get("/gallery", (req, res, next) => galleryController.index(req, res, next));
+
+    app.get("/memes", (req, res, next) => galleryController.memes(req, res, next));
 
     app.get("/:page", (req, res) => {
         // Allow letters, numbers and hyphens
