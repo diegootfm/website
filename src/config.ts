@@ -49,5 +49,8 @@ export default {
     "demomap": {
         "coordsfile": env.parsed.MAP_COORDSFILE,
         "ttl": env.parsed.MAP_TTL
+    },
+    "memes": {
+        "gitsecret": env.parsed.MEME_SECRET
     }
 };
