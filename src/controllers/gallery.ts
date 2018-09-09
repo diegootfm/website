@@ -35,6 +35,14 @@ class GalleryController {
         });
     }
 
+    memes(req: Request, res: Response, next: NextFunction){
+        log.debug("Memes");
+
+        this.getMemes().then(images => {
+            res.render("memes", { images });
+        });
+    }
+
     private getImages(): Promise<Image[]> {
         return this.cache.get<Image[]>("images", (): Promise<Image[]> =>
             fs.readdir(this.galleryPath).then(galleryFiles =>
@@ -51,6 +59,10 @@ class GalleryController {
                 )
             )
         );
+    }
+
+    private getMemes(): Promise<Image[]> {
+        return;
     }
 
     private isImageFile(file: string): boolean {
